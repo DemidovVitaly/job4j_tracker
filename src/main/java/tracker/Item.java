@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package tracker;
 
 public class Item {
     private int id;
