@@ -35,12 +35,10 @@ public class Calculator {
         int resMinus = minus(50);
         System.out.println(resMinus);
 
-        Calculator calcDiv = new Calculator();
-        int resDiv = calcDiv.divide(80);
+        int resDiv = calculator.divide(80);
         System.out.println(resDiv);
 
-        Calculator calcAll = new Calculator();
-        int resAll = calcAll.sumAllOperation(7);
+        int resAll = calculator.sumAllOperation(7);
         System.out.println(resAll);
     }
 }
