@@ -70,14 +70,13 @@ public class Tracker {
     /*удаление заявки*/
     public boolean delete(int id) {
         int index = indexOf(id);
-        if (index == -1) {
-            return false;
+        boolean rsl = index != -1;
+        if (rsl) {
+            items[index] = null;
+            System.arraycopy(items, index + 1, items, index, size - index - 1);
+            items[size - 1] = null;
+            size--;
         }
-        items[index] = null;
-        System.arraycopy(items, index + 1, items, index, size - index - 1);
-
-        items[size - 1] = null;
-        size--;
-        return true;
+        return rsl;
     }
 }
