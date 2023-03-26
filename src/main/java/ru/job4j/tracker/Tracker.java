@@ -34,14 +34,36 @@ public class Tracker {
 
     /*  получение заявки по id */
     public Item findById(int id) {
-        Item rsl = null;
+        /* Находим индекс */
+        int index = indexOf(id);
+        /* Если индекс найден возвращаем item, иначе null */
+        return index != -1 ? items[index] : null;
+    }
+
+    /* получение индекса по ID*/
+    private int indexOf(int id) {
+        int rsl = -1;
         for (int index = 0; index < size; index++) {
-            Item item = items[index];
-            if (item.getId() == id) {
-                rsl = item;
+            if (items[index].getId() == id) {
+                rsl = index;
                 break;
             }
         }
         return rsl;
+    }
+
+    /* Замена заявки */
+    public boolean replace(int id, Item item) {
+    /* производим поиск элемента по ID */
+        int indexTemp = indexOf(id);
+        if (indexTemp == -1) {
+            return false;
+        }
+        /*Проставить id с item. При замене нужно сохранять старый id */
+        /*Записать в ячейку с найденным индексом объект item. Это входящий параметр.*/
+        items[indexTemp].setName(item.getName());
+
+        /*Вернуть true, если замена произведена или false, если index по id не найден.*/
+        return true;
     }
 }
