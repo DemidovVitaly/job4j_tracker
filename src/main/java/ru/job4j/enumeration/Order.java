@@ -11,7 +11,6 @@ public class Order {
         this.status = status;
     }
 
-
     public int getNumber() {
         return number;
     }
