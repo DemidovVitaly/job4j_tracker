@@ -54,18 +54,15 @@ public class Tracker {
 
     /* Замена заявки */
     public boolean replace(int id, Item item) {
-    /* производим поиск элемента по ID */
-        int indexTemp = indexOf(id);
-        if (indexTemp == -1) {
-            return false;
+        int index = indexOf(id);
+        boolean result = index != -1;
+        if (result) {
+            item.setId(id);
+            items[index] = item;
         }
-        /*Проставить id с item. При замене нужно сохранять старый id */
-        /*Записать в ячейку с найденным индексом объект item. Это входящий параметр.*/
-        items[indexTemp].setName(item.getName());
-
-        /*Вернуть true, если замена произведена или false, если index по id не найден.*/
-        return true;
+        return result;
     }
+
 
     /*удаление заявки*/
     public boolean delete(int id) {
