@@ -63,7 +63,6 @@ public class Tracker {
         return result;
     }
 
-
     /*удаление заявки*/
     public boolean delete(int id) {
         int index = indexOf(id);
