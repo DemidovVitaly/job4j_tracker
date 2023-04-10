@@ -1,7 +1,7 @@
 package ru.job4j.oop;
 
 public class CarMain {
-
+/*
     public static void main(String[] args) {
         Car car = new Car("Марка", "Модель");
         Car.Transmission transmission = car.new Transmission();
@@ -11,6 +11,6 @@ public class CarMain {
         brakes.brake();
         Car.TripComputer tripComputer = car.new TripComputer();
         tripComputer.getInfo();
-    }
+    }*/
 
 }
