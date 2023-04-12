@@ -1,9 +1,10 @@
 package ru.job4j.tracker;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertNull;
 
-class StartUITest {
+public class StartUITest {
 
     @Test
     public void whenAddItem() {
@@ -17,7 +18,7 @@ class StartUITest {
     }
 
     @Test
-    void createItem() {
+    public void createItem() {
         String[] answers = {"first", "second", "third", "foгrth"};
         Input input = new StubInput(answers);
         Tracker tracker = new Tracker();
@@ -30,26 +31,42 @@ class StartUITest {
     }
 
     @Test
-    void showItem() {
+    public void showItem() {
     }
 
     @Test
-    void editItem() {
+    public void whenEditItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("new item");
+        tracker.add(item);
+        String[] answers = {
+                String.valueOf(item.getId()), /* id сохраненной заявки в объект tracker. */
+                "edited item"
+        };
+        StartUI.editItem(new StubInput(answers), tracker);
+        Item edited = tracker.findById(item.getId());
+        assertThat(edited.getName()).isEqualTo("edited item");
     }
 
     @Test
-    void deteleItem() {
+    public void deteleItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("new item");
+        tracker.add(item);
+        String[] answers = {String.valueOf(item.getId())}; /* id сохраненной заявки в объект tracker. */
+        StartUI.deteleItem(new StubInput(answers), tracker);
+        assertNull(tracker.findById(item.getId()));
     }
 
     @Test
-    void findById() {
+    public void findById() {
     }
 
     @Test
-    void findByName() {
+    public void findByName() {
     }
 
     @Test
-    void init() {
+    public void init() {
     }
 }
