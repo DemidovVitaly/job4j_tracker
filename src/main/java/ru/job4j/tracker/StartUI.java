@@ -34,7 +34,7 @@ public class StartUI {
         }
     }
 
-    public static void deteleItem (Input input, Tracker tracker) {
+    public static void deteleItem(Input input, Tracker tracker) {
         System.out.println("=== Delete item ===");
         int id = input.askInt("Enter id: ");
         if (tracker.delete(id)) {
@@ -44,7 +44,7 @@ public class StartUI {
         }
     }
 
-    public static void findById (Input input, Tracker tracker) {
+    public static void findById(Input input, Tracker tracker) {
         System.out.println("=== Find item by id ===");
         int id = input.askInt("Enter id: ");
         Item item = tracker.findById(id);
@@ -55,7 +55,7 @@ public class StartUI {
         }
     }
 
-    public static void findByName (Input input, Tracker tracker) {
+    public static void findByName(Input input, Tracker tracker) {
         System.out.println("=== Find items by name ===");
         String name = input.askStr("Enter name: ");
         Item[] items = tracker.findByName(name);
@@ -67,6 +67,7 @@ public class StartUI {
             System.out.println("Заявки с именем: " + name + " не найдены.");
         }
     }
+
     public void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
