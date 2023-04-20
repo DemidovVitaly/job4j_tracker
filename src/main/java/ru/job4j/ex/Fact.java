@@ -10,6 +10,7 @@ public class Fact {
         for (int index = 2; index <= n; index++) {
             rsl *= index;
         }
+        System.out.println(rsl);
         return rsl;
     }
 
