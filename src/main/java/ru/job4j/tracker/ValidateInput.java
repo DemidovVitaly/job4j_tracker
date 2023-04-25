@@ -28,33 +28,4 @@ public class ValidateInput implements Input {
         } while (invalid);
         return value;
     }
-
-    /* Вариант с валидатором, который не стит использовать*/
-    /*@Override
-    public int askInt(String question) {
-        boolean invalid = true;
-        int value = -1;
-        do {
-            String rsl = in.askStr(question);
-            if (!isNumber(rsl)) {
-                System.out.println("Please enter valid data");
-                continue;
-            }
-            value = Integer.parseInt(rsl);
-            invalid = false;
-        } while (invalid);
-        return value;
-    }
-
-    private boolean isNumber(String value) {
-        boolean rsl = true;
-        char[] check = value.toCharArray();
-        for (char num : check) {
-            if (num < 48 || num > 57) {
-                rsl = false;
-                break;
-            }
-        }
-        return rsl;
-    }*/
 }
