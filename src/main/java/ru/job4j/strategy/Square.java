@@ -7,8 +7,6 @@ public class Square implements Shape {
         return    " ______" + ln
                 + "|      |" + ln
                 + "|      |" + ln
-                + "|______|" + ln
-                ;
+                + "|______|" + ln;
     }
-
 }

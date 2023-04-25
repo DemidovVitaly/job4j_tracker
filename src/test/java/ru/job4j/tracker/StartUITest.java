@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class StartUITest {
+
     @Test
     public void whenCreateItem() {
         Output out = new StubOutput();
@@ -97,7 +98,7 @@ public class StartUITest {
                         + "Menu:" + ln
                         + "0. Edit Item" + ln
                         + "1. Exit" + ln
-                        +"=== Exit ===" + ln
+                        + "=== Exit ===" + ln
         );
     }
 
@@ -126,7 +127,7 @@ public class StartUITest {
                         + "Menu:" + ln
                         + "0. Show Item" + ln
                         + "1. Exit" + ln
-                        +"=== Exit ===" + ln
+                        + "=== Exit ===" + ln
         );
     }
 
@@ -153,7 +154,7 @@ public class StartUITest {
                         + "Menu:" + ln
                         + "0. Find Item by name" + ln
                         + "1. Exit" + ln
-                        +"=== Exit ===" + ln
+                        + "=== Exit ===" + ln
         );
     }
 
@@ -180,7 +181,7 @@ public class StartUITest {
                         + "Menu:" + ln
                         + "0. Find Item by ID" + ln
                         + "1. Exit" + ln
-                        +"=== Exit ===" + ln
+                        + "=== Exit ===" + ln
         );
     }
 
