@@ -27,7 +27,7 @@ public class PasswordValidator {
             throw new IllegalArgumentException("Password can't be null");
         }
 
-        if (password.length() < 8 || password.length() >32) {
+        if (password.length() < 8 || password.length() > 32) {
             throw new IllegalArgumentException("Password should be length [8, 32]");
         }
 
