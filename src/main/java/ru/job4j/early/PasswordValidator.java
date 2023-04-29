@@ -26,17 +26,14 @@ public class PasswordValidator {
         if (password == null) {
             throw new IllegalArgumentException("Password can't be null");
         }
-
         if (password.length() < 8 || password.length() > 32) {
             throw new IllegalArgumentException("Password should be length [8, 32]");
         }
-
         boolean hasUpCase = false;
         boolean hasLowCase = false;
         boolean hasDigit = false;
         boolean hasSpecial = false;
         for (char symbol : password.toCharArray()) {
-            /* Блок проверки принадлежности символа к определенной группе - Character.is ... */
             if (Character.isUpperCase(symbol)) {
                 hasUpCase = true;
             }
@@ -48,6 +45,9 @@ public class PasswordValidator {
             }
             if (!Character.isLetterOrDigit(symbol)) {
                 hasSpecial = true;
+            }
+            if (hasDigit && hasSpecial && hasLowCase && hasUpCase) {
+                break;
             }
         }
         if (!hasUpCase) {
@@ -70,7 +70,6 @@ public class PasswordValidator {
                     "Password should contain at least one special symbol"
             );
         }
-        /* Проверка на распространенные пароли */
         for (String simplePass : FORBIDDEN) {
             int num = password.toLowerCase().indexOf(simplePass);
             if (num != -1) {
