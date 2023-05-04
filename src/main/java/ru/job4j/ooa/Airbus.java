@@ -27,8 +27,7 @@ public final class Airbus extends Aircraft {
         System.out.println("Количество двигателей равно: " + count);
         }
 
-
-        @Override
+    @Override
     public String toString() {
         return "Airbus{"
                 + "name='" + name + '\''
