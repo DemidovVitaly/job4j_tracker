@@ -1,50 +1,49 @@
 package ru.job4j.tracker;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Tracker {
-    private final Item[] items = new Item[100];
-    private int ids = 1;
-    private int size = 0;
+    /**
+     * Массив для хранения заявок.
+     */
+    private final List<Item> items = new ArrayList<>();
 
     /* добавление заявок */
     public Item add(Item item) {
-        item.setId(ids++);
-        items[size++] = item;
+        this.items.add(item);
         return item;
     }
 
     /*получение списка всех заявок*/
-    public Item[] findAll() {
-        return Arrays.copyOf(items, size);
+    public List<Item> findAll() {
+        return items;
     }
 
     /* получение списка по имени */
-    public Item[] findByName(String key) {
-        int num = 0;
-        Item[] rsl = new Item[size];
-
-        for (int i = 0; i < size; i++) {
-            if (items[i].getName().equals(key)) {
-                rsl[num++] = items[i];
+    public List<Item> findByName(String key) {
+        List<Item> rsl = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getName().equals(key)) {
+                rsl.add(item);
             }
         }
-        return Arrays.copyOf(rsl, num);
+        return rsl;
     }
 
     /*  получение заявки по id */
     public Item findById(int id) {
-        /* Находим индекс */
-        int index = indexOf(id);
+       /* Находим индекс */
+       int index = indexOf(id);
         /* Если индекс найден возвращаем item, иначе null */
-        return index != -1 ? items[index] : null;
+        return index != -1 ? items.get(index) : null;
     }
 
     /* получение индекса по ID*/
     private int indexOf(int id) {
         int rsl = -1;
-        for (int index = 0; index < size; index++) {
-            if (items[index].getId() == id) {
+        for (int index = 0; index < items.size(); index++) {
+            if (items.get(index).getId() == id) {
                 rsl = index;
                 break;
             }
@@ -52,13 +51,14 @@ public class Tracker {
         return rsl;
     }
 
+
     /* Замена заявки */
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
         boolean result = index != -1;
         if (result) {
             item.setId(id);
-            items[index] = item;
+            items.set(index, item);
         }
         return result;
     }
@@ -68,10 +68,7 @@ public class Tracker {
         int index = indexOf(id);
         boolean rsl = index != -1;
         if (rsl) {
-            items[index] = null;
-            System.arraycopy(items, index + 1, items, index, size - index - 1);
-            items[size - 1] = null;
-            size--;
+            items.remove(index);
         }
         return rsl;
     }
