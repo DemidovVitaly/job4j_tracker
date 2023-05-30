@@ -51,7 +51,6 @@ public class Tracker {
         return rsl;
     }
 
-
     /* Замена заявки */
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
