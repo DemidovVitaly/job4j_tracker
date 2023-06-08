@@ -13,11 +13,12 @@ public class BankService {
     }
 
     public boolean deleteUser(String passport) {
-        for (User user : users.keySet())
+        for (User user : users.keySet()) {
             if (user.getPassport().equals(passport)) {
                 users.remove(user);
                 return true;
             }
+        }
         return false;
     }
 
