@@ -34,6 +34,7 @@ public class JobTest {
         );
         assertThat(rsl).isLessThan(0);
     }
+
     @Test
     public void whenCompatorByIncName2() {
         Comparator<Job> cmpNamePriority = new JobIncByName();
